@@ -142,12 +142,22 @@ public class Main {
 
 
  */
-        int [] arr= {4,3,2,1};
+        int [] arr= {9,4,2,8};
         int [] answer ={};
+        int min=0;
+        int minIdx=0;
+        for(int i=0;i<arr.length;i++){
+            if(min>arr[i]){
+                min=arr[i];
+                minIdx=i;
+            }
+        }
+        answer= ArraySub(arr,minIdx);
+
         if(answer.length==0)
             ArrayAdd(answer,-1);
 
-        answer= ArraySub(arr,2);
+
         for(int i=0; i<answer.length;i++)
             System.out.println(answer[i]);
 
@@ -211,7 +221,7 @@ public class Main {
     }
     public static String[] ArraySub(String[] originArray,int idx){
 
-        //만약 제거할 값이 없을경우의 오버프롤우 발생
+        //만약 제거할 값이 없을경우의 오류(오버플로우) 발생할수도있음
         try{
             String[] newArray = new String[originArray.length -1];
             int j = 0;
@@ -225,7 +235,6 @@ public class Main {
             return newArray;
 
         }catch (Exception ex){
-            System.out.println("동일한값없음");
             System.out.println(ex);
             return originArray;
         }
