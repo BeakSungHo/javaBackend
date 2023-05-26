@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        //정수 내림차순으로 배치
       /*
         long n = 118372;
         char c;
@@ -21,6 +22,7 @@ public class Main {
         answer=Long.parseLong(sn)  ;
         System.out.println(answer);
                              */
+        //하샤드 수
       /*  int x= 11;
         int x1 =x;
         int sum=0;
@@ -38,6 +40,7 @@ public class Main {
         System.out.println(answer);
 
        */
+        //두정수 사이의 합
       /*
         int a =3;
         int b= 5 ;
@@ -62,6 +65,7 @@ public class Main {
         System.out.println(answer);
 
    */
+        //콜라츠 추측
       /*  int num=626331;
         long num1=num;
         int answer =0 ;
@@ -80,6 +84,7 @@ public class Main {
         System.out.println(num);
         System.out.println(answer);
        */
+        //서울에서 김서방 찾기
       /* String [] seoul =  {"Jane","Kim"};
         int focus= 0    ;
 
@@ -93,6 +98,7 @@ public class Main {
         String answer =String.format("김서방은 %d에 있다.",focus);
         System.out.println(answer);
        */
+        //나누어 떨어지는 숫자배열
     /*
         int[] arr = {2,36,1,3};
         int divisor=1;
@@ -108,6 +114,7 @@ public class Main {
 
 
          */
+        //핸드폰 번호 가리기
     /*
         String phone_number="01033334444";
         String answer ="";
@@ -121,6 +128,7 @@ public class Main {
         //아래가 최소화 정답
         phone_number.replaceAll(".(?=.{4})", "*");
  */
+        //음양 더하기
     /*
         int[] absolutes = {4, 7, 12};
         boolean[] signs = {true, false, true};
@@ -132,6 +140,7 @@ public class Main {
 
 
  */
+        //없는수자 더하기
     /*
         int[] numbers={1,2,3,4,6,7,8,0};//5,9가없어서 14  최대 45
         int answer=45;
@@ -142,9 +151,11 @@ public class Main {
 
 
  */
-        int [] arr= {9,4,2,8};
+        //제일작은수 제거
+        /*
+        int [] arr= {9};
         int [] answer ={};
-        int min=0;
+        int min=2147483647;
         int minIdx=0;
         for(int i=0;i<arr.length;i++){
             if(min>arr[i]){
@@ -155,14 +166,58 @@ public class Main {
         answer= ArraySub(arr,minIdx);
 
         if(answer.length==0)
-            ArrayAdd(answer,-1);
+            answer= ArrayAdd(answer,-1);
 
 
         for(int i=0; i<answer.length;i++)
             System.out.println(answer[i]);
 
+         */
+        //가운데 글자 가져오기
+        /*
+        String s = "abcde";
+        String answer ="";
+        if(s.length()%2==0) {
+            answer+=s.charAt(s.length()/2-1);
+            answer+=s.charAt(s.length()/2);
+        }else
+            answer+=s.charAt(s.length()/2);
+        System.out.println(answer);
+
+         */
+        //박수박수박수박
+        /*
+        int n = 3;
+        String[] waterMelon= {"수","박"};
+        String answer ="";
+        for(int i = 0;i<n;i++){
+            answer+=waterMelon[i%2];
+        }
+        System.out.println(answer);
+        //new String(new char [n/2+1]).replace("\0", "수박").substring(0,n);//정답
+        */
+        //박수박수박수박 최적화
+        /*
+        int n = 3;
+        String[] waterMelon = {"수", "박"};
+        StringBuilder answer = new StringBuilder();
+
+        for (int i = 0; i < n; i++) {
+            answer.append(waterMelon[i % 2]);
+        }
+
+        System.out.println(answer.toString());
+        */
+
+
+
+
+
+
+
 
     }
+
 
 
     //배열추가
@@ -197,65 +252,67 @@ public class Main {
 
     //배열추가
     //배열제거
-    public static int[] ArraySub(int[] originArray,int idx){
+    public static int[] ArraySub(int[] originArray, int idx) {
 
         //만약 제거할 값이 없을경우의 오버프롤우 발생
-        try{
-            int[] newArray = new int[originArray.length -1];
+        try {
+            int[] newArray = new int[originArray.length - 1];
             int j = 0;
             for (int i = 0; i < originArray.length; i++) {
 
-                if (i!=idx){
+                if (i != idx) {
                     newArray[j] = originArray[i];
                     j++;
                 }
             }
             return newArray;
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("동일한값없음");
             System.out.println(ex);
             return originArray;
         }
 
     }
-    public static String[] ArraySub(String[] originArray,int idx){
+
+    public static String[] ArraySub(String[] originArray, int idx) {
 
         //만약 제거할 값이 없을경우의 오류(오버플로우) 발생할수도있음
-        try{
-            String[] newArray = new String[originArray.length -1];
+        try {
+            String[] newArray = new String[originArray.length - 1];
             int j = 0;
             for (int i = 0; i < originArray.length; i++) {
 
-                if (i!=idx){
+                if (i != idx) {
                     newArray[j] = originArray[i];
                     j++;
                 }
             }
             return newArray;
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
             return originArray;
         }
 
     }
-    public static Double[] ArraySub(Double[] originArray,int idx){
+
+    public static Double[] ArraySub(Double[] originArray, int idx) {
 
         //만약 제거할 값이 없을경우의 오버프롤우 발생
-        try{
-            Double[] newArray = new Double[originArray.length -1];
+        try {
+            Double[] newArray = new Double[originArray.length - 1];
             int j = 0;
             for (int i = 0; i < originArray.length; i++) {
 
-                if (i!=idx){
+                if (i != idx) {
                     newArray[j] = originArray[i];
                     j++;
                 }
             }
             return newArray;
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("동일한값없음");
             System.out.println(ex);
             return originArray;
