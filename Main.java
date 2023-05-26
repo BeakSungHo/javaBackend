@@ -1,6 +1,7 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 
+
 import java.util.Arrays;
 
 public class Main {
@@ -208,11 +209,74 @@ public class Main {
 
         System.out.println(answer.toString());
         */
+        //내적
+        /*
+        int [] a= {-1,0,1};
+        int [] b ={1,0,-1};
+        //1 2 3 4
+        //-3 -1 0 2
+        //-3 + -2 + 0 + 8 = 3
+
+        int answer =0;
+        for(int i = 0 ; i <a.length;i++){
+           answer+=a[i]*b[i];
+        }
+
+        System.out.println(answer);
+
+         */
+        //약수의 갯수와 덧셈
+        /*
+        int left =13;
+        int right = 17;
+
+        int answer =0;
+        int mCount=0;
+
+        for(int i =left;i<=right;i++){
+            mCount=0;
+            for(int j= 1;j<=i;j++){
+               if(i%j==0) mCount++;
+            }
+            if(mCount%2==0)
+                answer+=i;
+            else answer-=i;
+        }
+        System.out.println(answer);
+//
+
+         */
+        //문자열 내림차순으로 배치하기
+        /*
+        String s="Zbcdefg";
+        String answer ;
+        char[] c= s.toCharArray();
+        char compare;
+        for(int i =0 ; i<c.length;i++){
+            for(int j =i ; j<c.length;j++) {
+                if(c[i]<c[j]){
+                    compare=c[j];
+                    c[j]=c[i];
+                    c[i]=compare;
+                }
+            }
+        }
+        answer =new String(c);
+        // answer = String.valueOf(c);
+
+        System.out.println(answer);
 
 
+         */
+
+        int price = 3;
+        int money= 20;
+        int count = 4;
+
+        long answer = -1;
 
 
-
+        System.out.println(answer);
 
 
 
