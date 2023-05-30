@@ -268,19 +268,41 @@ public class Main {
 
 
          */
+        //부족한 금액 계산하기
+        /*
+        int price = 3; //가격
+        int money= 20; // 고객이 가진동
+        int count = 4; //고객이 타고싶은 횟수 횟수대로 price n배 상승
 
-        int price = 3;
-        int money= 20;
-        int count = 4;
 
-        long answer = -1;
+        long answer =0;
 
+        for(int i =1; i<=count;i++ )
+            answer+=price*i;
+        answer=answer-money>0? answer-money:0;
 
         System.out.println(answer);
 
         //저장되는지확인
 
+         */
+        //문자열 다루기 기본
+        /*
+        String s = "a234";
+        boolean answer=true;
 
+        try{
+            int as = Integer.parseInt(s);
+            answer= s.length()==4||s.length()==6 ? true : false;
+            System.out.println(answer);
+        }catch (Exception ex){
+            System.out.println(false);
+        }
+        int as = Integer.parseInt(s);
+        //(s.length() != 4 && s.length() != 6) || (s.split("[0-9]").length > 0) ? false:true;
+
+
+         */
 
 
     }
