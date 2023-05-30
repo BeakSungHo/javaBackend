@@ -383,7 +383,8 @@ public class Main {
 
 
          */
-
+        //3진법 뒤집기
+        /*
         int n =125;
         int answer= 0;
         int cb=0;
@@ -427,16 +428,27 @@ public class Main {
 //        String sn=String.valueOf(n);
 //        System.out.println(sn);
 
+ */
+
+        String s = "AbC DeFG HIJKLM NOPQR STU VW XYZ abcd efg hijk lmn opqr stu vw xyz";
+        String answer = "";
+        String [] splitAnswer = s.split(" ");
+        char[] c;
+        for(int i =0; i<splitAnswer.length;i++){
+            c = splitAnswer[i].toCharArray();
+            for(int j=0;j<c.length;j++){
+                //c[j]=
+
+            }
+
+            answer+=String.valueOf(c);
+            if(i+1!=splitAnswer.length)answer+=" ";
+        }
+        System.out.println(answer);
+        //System.out.printf("%d",(int)'A');//a=97  A=65
 
 
 
-
-
-
-
-
-
-        //힝 실험젬
 
     }
 
@@ -473,6 +485,7 @@ public class Main {
             System.out.println("{"+i+"] \""+Array[i]+"\"");
         }
     }
+
     //출력관련 함수
 
 
