@@ -5,13 +5,149 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
+
+
+    }
+
+    //출력관련 함수 
+    public static void ArrayPrint(int [][] Array){
+        for(int i = 0;i<Array.length;i++) {
+            for (int j = 0; j < Array[i].length; j++) {
+                System.out.print("{"+i+"]"+" {"+j+"] : "
+                        +Array[i][j]+" |\t");
+            }
+            System.out.println();
+        }
+    }
+    public static void ArrayPrint(int [] Array){
+        for(int i = 0;i<Array.length;i++) {
+            System.out.println("{"+i+"] "+Array[i]);
+        }
+    }    public static void ArrayPrint(long [] Array){
+        for(int i = 0;i<Array.length;i++) {
+            System.out.println("{"+i+"] "+Array[i]);
+        }
+    }
+    public static void ArrayPrint(String [][] Array){
+        for(int i = 0;i<Array.length;i++) {
+            for (int j = 0; j < Array[i].length; j++) {
+                System.out.print("{"+i+"]"+" {"+j+"] : \""
+                        +Array[i][j]+"\" |\t");
+            }
+            System.out.println();
+        }
+    }
+    public static void ArrayPrint(String [] Array){
+        for(int i = 0;i<Array.length;i++) {
+            System.out.println("{"+i+"] \""+Array[i]+"\"");
+        }
+    }
+
+    //출력관련 함수
+
+
+    //배열추가
+
+    public static int[] ArrayAdd(int[] originArray, int val) {
+        int[] newArray = Arrays.copyOf(originArray, originArray.length+1);
+        newArray[originArray.length] = val;
+        return newArray;
+    }
+    public static Double[] ArrayAdd(Double[] originArray, Double val) {
+        Double[] newArray = new Double[originArray.length + 1];
+        for (int i = 0; i < originArray.length; i++) {
+            newArray[i] = originArray[i];
+        }
+        newArray[originArray.length] = val;
+        return newArray;
+    }
+    public static String[] ArrayAdd(String[] originArray, String val) {
+        String[] newArray = new String[originArray.length + 1];
+        for (int i = 0; i < originArray.length; i++) {
+            newArray[i] = originArray[i];
+        }
+        newArray[originArray.length] = val;
+        return newArray;
+    }
+    //배열추가
+    //배열제거
+    public static int[] ArraySub(int[] originArray, int idx) {
+
+        //만약 제거할 값이 없을경우의 오버프롤우 발생
+        try {
+            int[] newArray = new int[originArray.length - 1];
+            int j = 0;
+            for (int i = 0; i < originArray.length; i++) {
+
+                if (i != idx) {
+                    newArray[j] = originArray[i];
+                    j++;
+                }
+            }
+            return newArray;
+
+        } catch (Exception ex) {
+            System.out.println("동일한값없음");
+            System.out.println(ex);
+            return originArray;
+        }
+
+    }
+
+    public static String[] ArraySub(String[] originArray, int idx) {
+
+        //만약 제거할 값이 없을경우의 오류(오버플로우) 발생할수도있음
+        try {
+            String[] newArray = new String[originArray.length - 1];
+            int j = 0;
+            for (int i = 0; i < originArray.length; i++) {
+
+                if (i != idx) {
+                    newArray[j] = originArray[i];
+                    j++;
+                }
+            }
+            return newArray;
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            return originArray;
+        }
+
+    }
+
+    public static Double[] ArraySub(Double[] originArray, int idx) {
+
+        //만약 제거할 값이 없을경우의 오버프롤우 발생
+        try {
+            Double[] newArray = new Double[originArray.length - 1];
+            int j = 0;
+            for (int i = 0; i < originArray.length; i++) {
+
+                if (i != idx) {
+                    newArray[j] = originArray[i];
+                    j++;
+                }
+            }
+            return newArray;
+
+        } catch (Exception ex) {
+            System.out.println("동일한값없음");
+            System.out.println(ex);
+            return originArray;
+        }
+
+    }
+    //배열제거
+
+
+    public static void Test(){
+
         //정수 내림차순으로 배치
         /*
         long n = 118372;
@@ -305,7 +441,7 @@ public class Main {
             System.out.println(false);
         }
         int as = Integer.parseInt(s);
-        
+
         // 다음이 모번 답안
         //(s.length() != 4 && s.length() != 6) || (s.split("[0-9]").length > 0) ? false:true;
 
@@ -359,7 +495,7 @@ public class Main {
         ArrayPrint(answer);
         System.out.println(n*m);
  */
-        //같은 숫자는 싫음ㅇㅅㅇ (큐사용해서 작성 )
+        //같은 숫자는 싫음ㅇㅅㅇ (큐사용해서 작성)
         /*
         int [] arr = {1,1,3,1,3,3,0,1,1,1000000 };
         //[1,3,0,1] 가나와야함  중복되는 수가 나오면 배열추가
@@ -429,158 +565,75 @@ public class Main {
 //        System.out.println(sn);
 
  */
+        //이상한 문자 만들기(중요 부분 람다식,스코프 연산,메서드참조 연산자(::) )
+        /*
 
-        String s = "AbC DeFG HIJKLM NOPQR STU VW XYZ abcd efg hijk lmn opqr stu vw xyz";
+        //뒤에 공백이 제거되는것이 문제엿음;;
+        String s = "try hello world";
         String answer = "";
         String [] splitAnswer = s.split(" ");
+        //공백갯수를 구하는 코드
+        int spaceCount=0;
+        for(int i =0; i<splitAnswer.length;i++){
+            spaceCount+=splitAnswer[i].length();
+        }
+        spaceCount=s.length()-(spaceCount+splitAnswer.length)+1;
+
+//아래는 공백이 제거할경우의 연산들(람다)
+//       String[] splitAnswer;
+//       splitAnswer= Arrays.stream((s.split(" ")))
+//               .filter(f->!f.isEmpty()).toArray(String[]::new);
+        //간략 설명 f= !f.isEmpty()즉 비어있지않을때 Array형식으로 변환하여 String 배열을 생성하여 집어넣는다.
+                //collect(Collections.toLisst) List일경우
+                //      String배열일경우 객체제생성 필요
+        //공백이 두번들어간것에대해서 상정하지않음 그래서 위필필터를 사용하여 제거시도
+        //람다식 사용예제
         char[] c;
         for(int i =0; i<splitAnswer.length;i++){
             c = splitAnswer[i].toCharArray();
             for(int j=0;j<c.length;j++){
-                //c[j]=
+                if(j%2==0){
+                    if(c[j]>=97){
+                        c[j]=(char)(c[j]-32);
+                    }
+                }else{
+                    if(c[j]<97){
+                        c[j]=(char)(c[j]+32);
+                    }
+
+                }
 
             }
 
             answer+=String.valueOf(c);
             if(i+1!=splitAnswer.length)answer+=" ";
         }
-        System.out.println(answer);
-        //System.out.printf("%d",(int)'A');//a=97  A=65
-
-
-
-
-    }
-
-    //출력관련 함수 
-    public static void ArrayPrint(int [][] Array){
-        for(int i = 0;i<Array.length;i++) {
-            for (int j = 0; j < Array[i].length; j++) {
-                System.out.print("{"+i+"]"+" {"+j+"] : "
-                        +Array[i][j]+" |\t");
-            }
-            System.out.println();
+        for(int i =0;i<spaceCount;i++){
+            answer+=" ";
         }
-    }
-    public static void ArrayPrint(int [] Array){
-        for(int i = 0;i<Array.length;i++) {
-            System.out.println("{"+i+"] "+Array[i]);
-        }
-    }    public static void ArrayPrint(long [] Array){
-        for(int i = 0;i<Array.length;i++) {
-            System.out.println("{"+i+"] "+Array[i]);
-        }
-    }
-    public static void ArrayPrint(String [][] Array){
-        for(int i = 0;i<Array.length;i++) {
-            for (int j = 0; j < Array[i].length; j++) {
-                System.out.print("{"+i+"]"+" {"+j+"] : \""
-                        +Array[i][j]+"\" |\t");
-            }
-            System.out.println();
-        }
-    }
-    public static void ArrayPrint(String [] Array){
-        for(int i = 0;i<Array.length;i++) {
-            System.out.println("{"+i+"] \""+Array[i]+"\"");
-        }
-    }
+        System.out.print(answer);
+        //System.out.printf("%d",(int)'A');//a=97  A=65 --32
+        //람다식(->) 과 참조연산자(::)사용법 대략
+        /*
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+         // 람다식을 사용한 방법
+        names.forEach(name -> System.out.println(name));
+        // 메서드 참조를 사용한 방법
+        names.forEach(System.out::println);
 
-    //출력관련 함수
+        String[] namesArray = {"Alice", "Bob", "Charlie"};
+        // 람다식을 사용한 방법
+        String a[];
+        Arrays.stream(namesArray)
+                .forEach(name -> System.out.println(name));
+        // 메서드 참조를 사용한 방법
+        Arrays.stream(namesArray)
+                .forEach(System.out::println);
+
+ */
 
 
-    //배열추가
-
-    public static int[] ArrayAdd(int[] originArray, int val) {
-        int[] newArray = Arrays.copyOf(originArray, originArray.length+1);
-        newArray[originArray.length] = val;
-        return newArray;
-    }
-    public static Double[] ArrayAdd(Double[] originArray, Double val) {
-        Double[] newArray = new Double[originArray.length + 1];
-        for (int i = 0; i < originArray.length; i++) {
-            newArray[i] = originArray[i];
-        }
-        newArray[originArray.length] = val;
-        return newArray;
-    }
-    public static String[] ArrayAdd(String[] originArray, String val) {
-        String[] newArray = new String[originArray.length + 1];
-        for (int i = 0; i < originArray.length; i++) {
-            newArray[i] = originArray[i];
-        }
-        newArray[originArray.length] = val;
-        return newArray;
-    }
-    //배열추가
-    //배열제거
-    public static int[] ArraySub(int[] originArray, int idx) {
-
-        //만약 제거할 값이 없을경우의 오버프롤우 발생
-        try {
-            int[] newArray = new int[originArray.length - 1];
-            int j = 0;
-            for (int i = 0; i < originArray.length; i++) {
-
-                if (i != idx) {
-                    newArray[j] = originArray[i];
-                    j++;
-                }
-            }
-            return newArray;
-
-        } catch (Exception ex) {
-            System.out.println("동일한값없음");
-            System.out.println(ex);
-            return originArray;
-        }
 
     }
-
-    public static String[] ArraySub(String[] originArray, int idx) {
-
-        //만약 제거할 값이 없을경우의 오류(오버플로우) 발생할수도있음
-        try {
-            String[] newArray = new String[originArray.length - 1];
-            int j = 0;
-            for (int i = 0; i < originArray.length; i++) {
-
-                if (i != idx) {
-                    newArray[j] = originArray[i];
-                    j++;
-                }
-            }
-            return newArray;
-
-        } catch (Exception ex) {
-            System.out.println(ex);
-            return originArray;
-        }
-
-    }
-
-    public static Double[] ArraySub(Double[] originArray, int idx) {
-
-        //만약 제거할 값이 없을경우의 오버프롤우 발생
-        try {
-            Double[] newArray = new Double[originArray.length - 1];
-            int j = 0;
-            for (int i = 0; i < originArray.length; i++) {
-
-                if (i != idx) {
-                    newArray[j] = originArray[i];
-                    j++;
-                }
-            }
-            return newArray;
-
-        } catch (Exception ex) {
-            System.out.println("동일한값없음");
-            System.out.println(ex);
-            return originArray;
-        }
-
-    }
-    //배열제거
 }
 

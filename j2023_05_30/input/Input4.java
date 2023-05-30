@@ -10,9 +10,10 @@ public class Input4 {
         String name= sc.nextLine();
         System.out.print("나이를 입력해주세요 : ");
         int age=sc.nextInt();
+        CustomerPrint(name,age);
+    }
+
+    public static void CustomerPrint(String name,int age){
         System.out.printf("안녕하세요 %d세 %s 입니다.",age,name);
-
-
-
     }
 }
