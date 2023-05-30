@@ -2,12 +2,18 @@
 // then press Enter. You can now see whitespace characters in your code.
 
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //정수 내림차순으로 배치
-      /*
+        /*
         long n = 118372;
         char c;
         String sn=String.format("%d",n);
@@ -24,7 +30,7 @@ public class Main {
         System.out.println(answer);
                              */
         //하샤드 수
-      /*  int x= 11;
+        /*  int x= 11;
         int x1 =x;
         int sum=0;
         while (x1>0){
@@ -42,7 +48,7 @@ public class Main {
 
        */
         //두정수 사이의 합
-      /*
+        /*
         int a =3;
         int b= 5 ;
 
@@ -67,7 +73,7 @@ public class Main {
 
    */
         //콜라츠 추측
-      /*  int num=626331;
+        /*  int num=626331;
         long num1=num;
         int answer =0 ;
         while(num1!=1){
@@ -86,7 +92,7 @@ public class Main {
         System.out.println(answer);
        */
         //서울에서 김서방 찾기
-      /* String [] seoul =  {"Jane","Kim"};
+        /* String [] seoul =  {"Jane","Kim"};
         int focus= 0    ;
 
         for(int i=0; i< seoul.length;i++){
@@ -100,7 +106,7 @@ public class Main {
         System.out.println(answer);
        */
         //나누어 떨어지는 숫자배열
-    /*
+        /*
         int[] arr = {2,36,1,3};
         int divisor=1;
         int [] answer=new int[0];
@@ -116,7 +122,7 @@ public class Main {
 
          */
         //핸드폰 번호 가리기
-    /*
+        /*
         String phone_number="01033334444";
         String answer ="";
         String phoneFront =phone_number.substring(phone_number.length()-4);
@@ -130,7 +136,7 @@ public class Main {
         phone_number.replaceAll(".(?=.{4})", "*");
  */
         //음양 더하기
-    /*
+        /*
         int[] absolutes = {4, 7, 12};
         boolean[] signs = {true, false, true};
         int answer=0;
@@ -142,7 +148,7 @@ public class Main {
 
  */
         //없는수자 더하기
-    /*
+        /*
         int[] numbers={1,2,3,4,6,7,8,0};//5,9가없어서 14  최대 45
         int answer=45;
         for(int i = 0; i<numbers.length;i++){
@@ -299,27 +305,183 @@ public class Main {
             System.out.println(false);
         }
         int as = Integer.parseInt(s);
+        
+        // 다음이 모번 답안
         //(s.length() != 4 && s.length() != 6) || (s.split("[0-9]").length > 0) ? false:true;
 
 
          */
+        //행렬의 덧셈
+        /*
+        int[][] arr1={{1,4},{2,3}};
+        int[][] arr2={{3,4},{5,6}};
+        int[][] answer=new int[arr1.length][arr1[0].length];
+        for(int i = 0;i<arr1.length;i++){
+            for(int j=0; j<arr1[i].length;j++){
+                answer[i][j]=arr1[i][j]+arr2[i][j];
+            }
+        }
+
+         */
+        //직사각형 별찍기
+        /*
+        Scanner sc = new Scanner(System.in);
+        BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+//        int a = sc.nextInt();
+//        int b = sc.nextInt();
+        int a = Integer.parseInt(br.readLine());
+        int b = Integer.parseInt(br.readLine());
+        for(int i = 0; i<b ;i++) {
+            for (int j = 0; j<a; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+
+         */
+        //최소공배수와 최대공약수
+        /*
+        int n =45 ;
+        int m =10;
+        long cm =m;
+        //최대 공약수와 최소 공배수
+        long[] answer =new long [2];
+        //최대 공약수 구하는공식
+        for(int i=n;i>0;--i){
+            if(m%i==0&&n%i==0){
+                answer[0]=i;
+                break;
+            }
+        }
+
+        //최소 공배수 구하는 공식
+        answer[1]=n*m/answer[0];
+        ArrayPrint(answer);
+        System.out.println(n*m);
+ */
+        //같은 숫자는 싫음ㅇㅅㅇ (큐사용해서 작성 )
+        /*
+        int [] arr = {1,1,3,1,3,3,0,1,1,1000000 };
+        //[1,3,0,1] 가나와야함  중복되는 수가 나오면 배열추가
+        // [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1]
+        // [4, 4, 4, 3, 3] 이면 [4, 3]
+        Queue<Integer> qu = new LinkedList<>();
+        int c= -1;
+        for(int i = 0; i<arr.length;i++){
+            if(arr[i]==c)
+                continue;
+            qu.offer(arr[i]);
+            c=arr[i];
+        }
+        int[] answer=new int [qu.size()] ;
+        for(int i = 0;i<answer.length;i++)
+            answer[i]=qu.poll();
+
+
+
+        ArrayPrint(answer);
+
+
+         */
+
+        int n =125;
+        int answer= 0;
+        int cb=0;
+        int  tb;//3진수 뜨리베이스약자
+
+        String t="";
+        int count =0;
+        while(true) {
+            if(n % 3 == 0) {
+                t += "0";
+                n = n / 3;
+            } else {
+                t += String.format("%d",n%3);
+                n = n / 3;
+            }
+            if(n==0){
+                break;
+            }
+
+        }
+        System.out.println(t);
+        char[] c = t.toCharArray();
+        for(int i =c.length-1; i>=0;i--){
+            cb=1;
+            if(count==0)
+                answer+=Integer.parseInt(String.format("%c",c[i]));
+            else{
+                for(int j=0;j<count;j++)
+                    cb*=3;
+                answer+=Integer.parseInt(String.format("%c",c[i]))*cb   ;
+            }
+            count++;
+
+        }
+
+        System.out.println(Arrays.toString(c));
+        System.out.println(answer);
+
+
+//
+//        String sn=String.valueOf(n);
+//        System.out.println(sn);
+
+
+
+
+
+
+
+
+
 
 
     }
 
+    //출력관련 함수 
+    public static void ArrayPrint(int [][] Array){
+        for(int i = 0;i<Array.length;i++) {
+            for (int j = 0; j < Array[i].length; j++) {
+                System.out.print("{"+i+"]"+" {"+j+"] : "
+                        +Array[i][j]+" |\t");
+            }
+            System.out.println();
+        }
+    }
+    public static void ArrayPrint(int [] Array){
+        for(int i = 0;i<Array.length;i++) {
+            System.out.println("{"+i+"] "+Array[i]);
+        }
+    }    public static void ArrayPrint(long [] Array){
+        for(int i = 0;i<Array.length;i++) {
+            System.out.println("{"+i+"] "+Array[i]);
+        }
+    }
+    public static void ArrayPrint(String [][] Array){
+        for(int i = 0;i<Array.length;i++) {
+            for (int j = 0; j < Array[i].length; j++) {
+                System.out.print("{"+i+"]"+" {"+j+"] : \""
+                        +Array[i][j]+"\" |\t");
+            }
+            System.out.println();
+        }
+    }
+    public static void ArrayPrint(String [] Array){
+        for(int i = 0;i<Array.length;i++) {
+            System.out.println("{"+i+"] \""+Array[i]+"\"");
+        }
+    }
+    //출력관련 함수
 
 
     //배열추가
 
     public static int[] ArrayAdd(int[] originArray, int val) {
-        int[] newArray = new int[originArray.length + 1];
-        for (int i = 0; i < originArray.length; i++) {
-            newArray[i] = originArray[i];
-        }
+        int[] newArray = Arrays.copyOf(originArray, originArray.length+1);
         newArray[originArray.length] = val;
         return newArray;
     }
-
     public static Double[] ArrayAdd(Double[] originArray, Double val) {
         Double[] newArray = new Double[originArray.length + 1];
         for (int i = 0; i < originArray.length; i++) {
@@ -328,8 +490,6 @@ public class Main {
         newArray[originArray.length] = val;
         return newArray;
     }
-
-
     public static String[] ArrayAdd(String[] originArray, String val) {
         String[] newArray = new String[originArray.length + 1];
         for (int i = 0; i < originArray.length; i++) {
@@ -338,7 +498,6 @@ public class Main {
         newArray[originArray.length] = val;
         return newArray;
     }
-
     //배열추가
     //배열제거
     public static int[] ArraySub(int[] originArray, int idx) {
