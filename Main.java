@@ -10,8 +10,23 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        int [] d = {1,3,2,5,4};
+        int budget=9;
+
+        int answer =0;
 
 
+    }
+
+    //큐에 저장된 데이터배열 배열로 조립 하는용도의 함수
+    public static int[] Q_Array(Queue<Integer> qu){
+        // Queue<Integer> qu = new LinkedList<>();
+        // qu.offer(arr[i]);
+        int[] newArr=new int [qu.size()] ;
+        for(int i = 0;i<newArr.length;i++)
+            newArr[i]=qu.poll();
+        //ArrayPrint(newArr);
+        return newArr ;
     }
 
     //출력관련 함수 
