@@ -5,61 +5,71 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        int [] d = {1,3,2,5,4};
-        int budget=9;
 
-        int answer =0;
+
 
 
     }
 
     //큐에 저장된 데이터배열 배열로 조립 하는용도의 함수
-    public static int[] Q_Array(Queue<Integer> qu){
+    public static int[] Q_Array(Queue<Integer> qu) {
         // Queue<Integer> qu = new LinkedList<>();
         // qu.offer(arr[i]);
-        int[] newArr=new int [qu.size()] ;
-        for(int i = 0;i<newArr.length;i++)
-            newArr[i]=qu.poll();
+        int[] newArr = new int[qu.size()];
+        for (int i = 0; i < newArr.length; i++)
+            newArr[i] = qu.poll();
         //ArrayPrint(newArr);
-        return newArr ;
+        return newArr;
     }
 
     //출력관련 함수 
-    public static void ArrayPrint(int [][] Array){
-        for(int i = 0;i<Array.length;i++) {
+    public static void ArrayPrint(int[][] Array) {
+        for (int i = 0; i < Array.length; i++) {
             for (int j = 0; j < Array[i].length; j++) {
-                System.out.print("{"+i+"]"+" {"+j+"] : "
-                        +Array[i][j]+" |\t");
+                System.out.print("{" + i + "]" + " {" + j + "] : "
+                        + Array[i][j] + " |\t");
             }
             System.out.println();
         }
     }
-    public static void ArrayPrint(int [] Array){
-        for(int i = 0;i<Array.length;i++) {
-            System.out.println("{"+i+"] "+Array[i]);
-        }
-    }    public static void ArrayPrint(long [] Array){
-        for(int i = 0;i<Array.length;i++) {
-            System.out.println("{"+i+"] "+Array[i]);
+
+    public static void ArrayPrint(int[] Array) {
+        for (int i = 0; i < Array.length; i++) {
+            System.out.println("{" + i + "] " + Array[i]);
         }
     }
-    public static void ArrayPrint(String [][] Array){
-        for(int i = 0;i<Array.length;i++) {
+
+    public static void ArrayPrint(long[] Array) {
+        for (int i = 0; i < Array.length; i++) {
+            System.out.println("{" + i + "] " + Array[i]);
+        }
+    }
+
+    public static void ArrayPrint(char[] Array) {
+        for (int i = 0; i < Array.length; i++) {
+            System.out.println("{" + i + "] " + Array[i]);
+        }
+    }
+
+    public static void ArrayPrint(String[][] Array) {
+        for (int i = 0; i < Array.length; i++) {
             for (int j = 0; j < Array[i].length; j++) {
-                System.out.print("{"+i+"]"+" {"+j+"] : \""
-                        +Array[i][j]+"\" |\t");
+                System.out.print("{" + i + "]" + " {" + j + "] : \""
+                        + Array[i][j] + "\" |\t");
             }
             System.out.println();
         }
     }
-    public static void ArrayPrint(String [] Array){
-        for(int i = 0;i<Array.length;i++) {
-            System.out.println("{"+i+"] \""+Array[i]+"\"");
+
+    public static void ArrayPrint(String[] Array) {
+        for (int i = 0; i < Array.length; i++) {
+            System.out.println("{" + i + "] \"" + Array[i] + "\"");
         }
     }
 
@@ -69,10 +79,11 @@ public class Main {
     //배열추가
 
     public static int[] ArrayAdd(int[] originArray, int val) {
-        int[] newArray = Arrays.copyOf(originArray, originArray.length+1);
+        int[] newArray = Arrays.copyOf(originArray, originArray.length + 1);
         newArray[originArray.length] = val;
         return newArray;
     }
+
     public static Double[] ArrayAdd(Double[] originArray, Double val) {
         Double[] newArray = new Double[originArray.length + 1];
         for (int i = 0; i < originArray.length; i++) {
@@ -81,6 +92,7 @@ public class Main {
         newArray[originArray.length] = val;
         return newArray;
     }
+
     public static String[] ArrayAdd(String[] originArray, String val) {
         String[] newArray = new String[originArray.length + 1];
         for (int i = 0; i < originArray.length; i++) {
@@ -89,6 +101,7 @@ public class Main {
         newArray[originArray.length] = val;
         return newArray;
     }
+
     //배열추가
     //배열제거
     public static int[] ArraySub(int[] originArray, int idx) {
@@ -161,7 +174,7 @@ public class Main {
     //배열제거
 
 
-    public static void Test(){
+    public static void Test() {
 
         //정수 내림차순으로 배치
         /*
@@ -645,7 +658,138 @@ public class Main {
         Arrays.stream(namesArray)
                 .forEach(System.out::println);
 
+        */
+
+        //예산
+        /*
+        int [] d = {2,2,3,3};//정렬후 빼는걸로 답 3
+        int budget=10;
+
+        int answer =1;
+        Arrays.sort(d);
+        for(int i = 0; i<d.length;i++){
+            if(budget>0){
+                budget-=d[i];
+                answer=i;
+            }else break;
+        }if(budget>=0)answer++;
+        System.out.println(answer);
+        ArrayPrint(d);
+         */
+        //삼총사
+        /*
+    int[] number = {-1, 1, -1, 1};
+    //3개의 배열을 찿아 더햇을때 0이되는 수의 갯수를 찾아야함
+        //이론상 수의 갯수는 배열의 갯수가  5*4*3 =>60번 반복
+
+    int answer=0;
+    for(int i=0; i<number.length;i++){
+        for(int j =0; j<number.length;j++){
+            if(i==j)continue;
+            for(int k=0;k<number.length;k++){
+                if(i==k||j==k)continue;
+                else{
+                    if((number[i]+number[j]+number[k])==0)
+                        answer++;
+                }
+            }
+        }
+    }
+        answer=answer/6;
+    System.out.println(answer);
+
+         */
+    //시저암호
+    /*
+        String s ="z  Z";
+        int n=1;
+        //a=97 z=122 A=65 Z=90  대문자와 소문자 간격 25
+        //대문자에서 +1되면 +1
+        //소문자에서 +1되면 +24 => 25--
+
+        String answer="";
+        char[] c= s.toCharArray();
+       // ArrayPrint(c);
+        for(int i = 0; i<c.length;i++){
+            if('a'<=c[i]) //소문자 받는다.
+            {
+                if(c[i]+n>'z')
+                    c[i]=(char)(c[i]-(26-n));
+                else c[i]+=(char)n;
+            }
+            else if (c[i]!=' ')  //대문자부터 받는다.
+            {
+                if(c[i]+n>'Z')
+                    c[i]=(char)(c[i]-(26-n));
+                else c[i]+=(char)n;
+            }
+        }
+        answer =String.valueOf(c);
+        char e= ' ';
+        System.out.printf("%d",(int)e);
+
+        System.out.println(answer);
+        //a=97 z=122 A=65 Z=90  대문자와 소문자 간격 25
+        //대문자에서 +1되면 +1
+        //소문자에서 +1되면 +24 => 25--
  */
+        //최소 직사각형
+        /*
+        int[][] sizes = {{60, 50}, {30, 70}, {60, 30}, {80, 40}};
+        //주어진 sizes의 크기의 지갑을 모두
+        // 보관할수 있는 지갑의 넓이 를 반환
+        int w = 0;//가로는 그냥 최대크기를 기입
+        int y = 0;//세로는  지갑중 길이가 작은것중 제일큰것
+
+        for (int i = 0; i < sizes.length; i++) {
+            int min=1000;//1차원배열중가장작은값 뽑기
+            for (int j = 0; j < sizes[0].length; j++) {
+                if (sizes[i][j] > w) w = sizes[i][j];
+                if(sizes[i][j] <= min)min=sizes[i][j];
+            }
+            if(y<min)y=min;
+        }
+
+        System.out.println(w);
+        System.out.println(y);
+        int answer = w*y;
+
+         */
+
+        //크기가 작은 부분 문자열 효율 별로안좋음
+        /*
+        String p = "15515122234";
+        String t= "10203545641516512051";//7개의 배열안에서는 5가지
+        //500220839878  //12  10가지?
+        //1234          //4   3가지의 자리수를 원할경우 2가지
+                        //      -1더한다 자릿수에서
+        //1234          //4   2가지의 자리수를 원할경우 3가지
+        long i_p=Long.parseLong(p);//값을비교하기위해 p를 숫자로바꿈
+        char[] c= t.toCharArray();  //t의 char배열생성
+
+        long [] i_t= new long[c.length-(p.length()-1)]; //연산하기위한 배열 자리 생성
+
+        int answer=0;
+
+        for(int i=0;i<c.length;i++){
+            String temporaryString="";
+            if(i+p.length()-1>=c.length){
+                break;
+            }
+            for(int j=i;j<i+p.length();j++)
+                temporaryString +=(""+c[j]);
+            i_t[i]=Long.parseLong(temporaryString);//값구하기
+            //구한값을 바로 대입에서 처리가능?
+            if(i_t[i]<=i_p)//작거나 같은수
+                answer++;
+        }
+
+        System.out.println(t.length());
+        ArrayPrint(i_t);
+        System.out.println(i_p);
+        System.out.println(answer);
+
+         */
 
 
 
