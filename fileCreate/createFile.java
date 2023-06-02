@@ -14,9 +14,9 @@ public class createFile {
 
     private static Scanner sc;
     private static String file_name;
-    private static int MAX= 4;
+    private static int MAX= 1;
     //해당 경로에 넣어야함 D:\정보치리기사 학원 (미라클 코리안 it)
-    private static String default_Path="D:\\정보치리기사 학원 (미라클 코리안 it)\\";
+    private static String default_Path="D:\\ncs(미라클코리안it)\\";
 
     public static void main(String[] args) {
 
@@ -67,10 +67,14 @@ public class createFile {
     public static void FileCreate(String Path,String file_name) throws IOException {
         File Default = new File(Path);
         File[] files = new File[MAX];
+        if(MAX ==1){
+            files[0]= new File(Default, file_name+".txt");
 
-        for(int i = 0;i<files.length;i++) {
-            files[i]= new File(Default, file_name+" "+(i+1)+"번째 타임.txt");
-            System.out.println(files[i].getAbsolutePath());
+        }else {
+            for(int i = 0;i<files.length;i++) {
+                files[i]= new File(Default, file_name+" "+(i+1)+"번째 타임.txt");
+                System.out.println(files[i].getAbsolutePath());
+            }
         }
 //		System.out.println(f1.getAbsolutePath());
 
