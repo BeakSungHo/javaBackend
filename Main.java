@@ -11,20 +11,39 @@ import java.util.*;
 public class Main {
     //sun bud car
     public static void main(String[] args) {
-        int a = 3;
-        int b = 2;
-        int n = 20;// n/a
+        //1 ≤ b < a ≤ n ≤ 1,000,000
+        int a =5;
+        int b = 1;
+        int n = 30;// n/a
         //6, 2, 1
         //12, 4, 2
+        //5, 1
+        // 10        5          2           1      1    남은병도 가져가는구나 a= 2 b= 1 n=20
+        // 20-20    10-10       5-4...1     3-2    2-2
 
+        //6             2            1                a= 3 b= 1 n=20
+        //20-18..2      8-6...2     4-3...1
 
+        //5             2           1         1     a= 2 b= 1 n=10
+        //10-10         5-4...1     3-2..1    2
+
+        //5*2             1*2
+        //20-20         5-4...1
+
+        //6             1
+        //30-30         6-5...1
         int answer = 0;
 
-        while (n!=0){
-            if(n/a!=0) answer+=(n/a)*b ;
-            else answer+=1*b;
-            //System.out.println((n/a)*b);
-            n=n/a;
+        while (n/a>0){
+            answer+=(n/a)*b ;
+            System.out.printf("(%d / %d)%d = %d \n",n,a,b,(n/a)*b);
+
+            Sleep(100);
+            System.out.println("+ answer "+(n/a)*b);
+            n=(n/a)+(n%a);
+            System.out.println("n = "+n+" a = "+a);
+            System.out.println("n/a = "+n/a);
+
         }
         System.out.println(answer);
 
@@ -41,7 +60,13 @@ public class Main {
 
         return result;
     }
-
+    public static void Sleep(int a){
+        try {
+            Thread.sleep(a); // 1000밀리초(1초) 동안 스레드 일시 정지
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     class CustomArray {
         //이진수 맵때문에 사용한 함수
