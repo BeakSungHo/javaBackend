@@ -11,40 +11,58 @@ import java.util.*;
 public class Main {
     //sun bud car
     public static void main(String[] args) {
-        //ArrayList<integer>사용해서 중복제거후 제기입?
+        int a = 3;
+        int b = 2;
+        int n = 20;// n/a
+        //6, 2, 1
+        //12, 4, 2
 
-        int [] numbers ={2,1,3,4,1};
-        //경우수는 5*4=20
-        //
 
-        int [] answer ={};
-      
-      
-      
-      
-      
+        int answer = 0;
+
+        while (n!=0){
+            if(n/a!=0) answer+=(n/a)*b ;
+            else answer+=1*b;
+            //System.out.println((n/a)*b);
+            n=n/a;
+        }
+        System.out.println(answer);
+
+
+
+
+    }
+
+    public static int[] convert_Array_Hashset(HashSet<Integer> set) {
+        int index = 0;
+        int[] result = new int[set.size()];
+        for (int val : set)
+            result[index++] = val;
+
+        return result;
     }
 
 
-    class CustomArray{
+    class CustomArray {
         //이진수 맵때문에 사용한 함수
-        public static int[] decimal_Binary(int originNum, int decimalSize){
-            int[] newBinary = new int [decimalSize];
-            int i = decimalSize-1;
-            while (true){
-                if(originNum%2==1||(originNum/2==0&&originNum!=0)){
-                    newBinary[i]=1;
+        public static int[] decimal_Binary(int originNum, int decimalSize) {
+            int[] newBinary = new int[decimalSize];
+            int i = decimalSize - 1;
+            while (true) {
+                if (originNum % 2 == 1 || (originNum / 2 == 0 && originNum != 0)) {
+                    newBinary[i] = 1;
                 }
-                originNum=originNum/2;
-                if(originNum<=0||i==0)break;
+                originNum = originNum / 2;
+                if (originNum <= 0 || i == 0) break;
                 i--;
             }
             return newBinary;
         }
-        public static void arrMapPrint(int [][] map){
-            for(int i=0;i<map.length;i++){
-                for(int j =0; j<map.length;j++){
-                    System.out.print(map[i][j]+"\t");
+
+        public static void arrMapPrint(int[][] map) {
+            for (int i = 0; i < map.length; i++) {
+                for (int j = 0; j < map.length; j++) {
+                    System.out.print(map[i][j] + "\t");
                 }
                 System.out.println();
             }
@@ -72,21 +90,25 @@ public class Main {
                 System.out.println();
             }
         }
+
         public static void ArrayPrint(int[] Array) {
             for (int i = 0; i < Array.length; i++) {
                 System.out.println("{" + i + "] " + Array[i]);
             }
         }
+
         public static void ArrayPrint(long[] Array) {
             for (int i = 0; i < Array.length; i++) {
                 System.out.println("{" + i + "] " + Array[i]);
             }
         }
+
         public static void ArrayPrint(char[] Array) {
             for (int i = 0; i < Array.length; i++) {
                 System.out.println("{" + i + "] " + Array[i]);
             }
         }
+
         public static void ArrayPrint(char[][] Array) {
             for (int i = 0; i < Array.length; i++) {
                 for (int j = 0; j < Array[i].length; j++) {
@@ -96,6 +118,7 @@ public class Main {
                 System.out.println();
             }
         }
+
         public static void ArrayPrint(String[][] Array) {
             for (int i = 0; i < Array.length; i++) {
                 for (int j = 0; j < Array[i].length; j++) {
@@ -105,6 +128,7 @@ public class Main {
                 System.out.println();
             }
         }
+
         public static void ArrayPrint(String[] Array) {
             for (int i = 0; i < Array.length; i++) {
                 System.out.println("{" + i + "] \"" + Array[i] + "\"");
@@ -119,6 +143,7 @@ public class Main {
             newArray[originArray.length] = val;
             return newArray;
         }
+
         public static Double[] ArrayAdd(Double[] originArray, Double val) {
             Double[] newArray = new Double[originArray.length + 1];
             for (int i = 0; i < originArray.length; i++) {
@@ -127,6 +152,7 @@ public class Main {
             newArray[originArray.length] = val;
             return newArray;
         }
+
         public static String[] ArrayAdd(String[] originArray, String val) {
             String[] newArray = new String[originArray.length + 1];
             for (int i = 0; i < originArray.length; i++) {
@@ -160,6 +186,7 @@ public class Main {
             }
 
         }
+
         public static String[] ArraySub(String[] originArray, int idx) {
             //만약 제거할 값이 없을경우의 오류(오버플로우) 발생할수도있음
             try {
@@ -180,6 +207,7 @@ public class Main {
             }
 
         }
+
         public static Double[] ArraySub(Double[] originArray, int idx) {
 
             //만약 제거할 값이 없을경우의 오버프롤우 발생
@@ -209,6 +237,27 @@ public class Main {
     //처리완료된 코드들 모음 dummy함수임
     public static void Test() {
 
+        //피라미드 에제 2개
+  /*
+
+//        for (int i =0;i<max;i+=2) {
+//            for (int j = i; j < max-1; j += 2)
+//                System.out.print(" ");
+//            for(int j=0;j<i+1;j++)
+//                System.out.print("*");
+//            System.out.println();
+//        }
+
+//        int height=5;
+//        for(int i = 1;i<height;i++){
+//            for(int j =1; j<height-i;j++)
+//                System.out.print(" ");
+//            for(int j=1;j<=2*i-1;j++)
+//                System.out.print("*");
+//            System.out.println();
+//        }
+
+         */
         //정수 내림차순으로 배치
         /*
         long n = 118372;
@@ -1091,17 +1140,86 @@ public class Main {
         }
 
          */
+        //두 개 뽑아서 더하기
+        /*
+//        int [] numbers ={2,1,3,4,1};// ==>{1,1,2,3,4}
+        int [] numbers ={90,2,80,15,45};// ==>
+        int [] answer ;
+        //경우수는 5*4=20
+        //
+        // HashSet<integer>사용해서 중복제거후 재기입
+        HashSet<Integer> set_Dup= new HashSet<>();
+        for(int i = 0; i<numbers.length;i++){
+            for(int j = i+1; j<numbers.length;j++){
+                set_Dup.add(numbers[i]+numbers[j]);
+            }
+        }
 
+        answer= convert_Array_Hashset(set_Dup);
+        Arrays.sort(answer);
 
+        System.out.println(set_Dup);
+        CustomArray.ArrayPrint(answer);
+*/
 
+        //푸드 파이트 대회
+        /*
+        int[] food = {1,3,4,6};
+        // /2를했을때 딱나눠지는 값으로 기입
+        //  푸드는 i 음식으로 기입되며 인덱스 0은 물이며
+        // 항상 1개로 확정
+        // 3 4 6 은 2로 나눠지면 1 2 3이 된다
+        //즉 겹과값은 1223330333221이된다.
 
+        //해결방안은 1중포문 2개로 앞 한번 뒤한번
+        //너무 무식한가?
+        int [] food_count=new int[food.length-1]; // 푸드의 겟수를 저장하는 카운트 배열
+        String answer="";
+        for(int i=1;i<food.length;i++)
+            food_count[i-1]=food[i]/2;
 
+        for(int i=0;i<food_count.length;i++) {
+            for (int j = 0; j < food_count[i]; j++)
+                answer += String.valueOf(i+1);
+        }
+        answer +="0";// 중앙 물등록
+        for(int i=food_count.length-1;i>=0;i--) {
+            for (int j = 0; j < food_count[i]; j++)
+                answer += String.valueOf(i+1);
+        }
+        System.out.println(answer);
 
+         */
+        //푸드 파이트 대회 모범답안
+        /*
+        String answer = "0";
 
+        for (int i = food.length - 1; i > 0; i--) {
+            for (int j = 0; j < food[i] / 2; j++) {
+                answer = i + answer + i;
+            }
+        }
+
+        return answer;
+         */
+        //가장 가까운 같은 글자
+        /*
+        String s = "banana";
+
+        char[] c=s.toCharArray();
+        int[] answer =new int [s.length()];// 이중포문으로 앞에 글자와차레대로 비교
+
+        for(int i = 0 ;i<c.length;i++){
+            answer[i]=-1;
+            for(int j= 0;j<i;j++){
+                if(c[i]==c[j])answer[i]=i-j;
+            }
+        }
+        CustomArray.ArrayPrint(answer);
+
+         */
 
     }
-
-
 
 
 }

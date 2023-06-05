@@ -8,6 +8,7 @@ public class Casting2 {
         a전사.이름 = 이름;
         a전사.나이 = 20;
         a전사.자기소개();
+        a전사.공격();
 
         a전사.나이++;
         a전사.자기소개();
@@ -34,7 +35,8 @@ class 전사 {
     무기 a무기;
 
     void 공격(){
-        System.out.println(a무기.outType()+"로 공격합니다.");
+        if(a무기!=null) System.out.println(a무기.outType() + "로 공격합니다.");
+        else System.out.println("주먹으로 공격합니다.");
     }
     void 자기소개() {
         System.out.println("안녕하세요. 저는 " + this.나이 + "살 " + this.이름 + " 입니다.");
