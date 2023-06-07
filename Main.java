@@ -11,47 +11,120 @@ import java.util.*;
 public class Main {
     //sun bud car
     public static void main(String[] args) {
-        //1 ≤ b < a ≤ n ≤ 1,000,000
-        int a =5;
-        int b = 1;
-        int n = 30;// n/a
-        //6, 2, 1
-        //12, 4, 2
-        //5, 1
-        // 10        5          2           1      1    남은병도 가져가는구나 a= 2 b= 1 n=20
-        // 20-20    10-10       5-4...1     3-2    2-2
 
-        //6             2            1                a= 3 b= 1 n=20
-        //20-18..2      8-6...2     4-3...1
+        int [] nums = {3, 3, 3, 2, 2, 2};
+        int answer=0;
+        HashSet<Integer> hs =new HashSet<>();
+        for(int num: nums)
+            hs.add(num);
+        int numssize= nums.length/2;
+        answer = numssize>= hs.size()?hs.size():numssize;
 
-        //5             2           1         1     a= 2 b= 1 n=10
-        //10-10         5-4...1     3-2..1    2
-
-        //5*2             1*2
-        //20-20         5-4...1
-
-        //6             1
-        //30-30         6-5...1
-        int answer = 0;
-
-        while (n/a>0){
-            answer+=(n/a)*b ;
-            System.out.printf("(%d / %d)%d = %d \n",n,a,b,(n/a)*b);
-
-            Sleep(100);
-            System.out.println("+ answer "+(n/a)*b);
-            n=(n/a)+(n%a);
-            System.out.println("n = "+n+" a = "+a);
-            System.out.println("n/a = "+n/a);
-
-        }
         System.out.println(answer);
+
+
+
 
 
 
 
     }
 
+    public class 심심이 {
+        public static void nana() {
+            System.out.println("" +
+                    "⠀⠘⡀⠀⠀⠀⠀             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀\n" +
+                    "⠀⠀⠀⠑⡀⠀⠀어쩌라고 진짜⠀⠀⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠴⠊⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠀⠀ ⠀⢸⠀⢀⣀⣀⣀⣀⠤⠄⠒⠈⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠀⠀⠀:.⠄⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⢀⣴⠶⠿⠟⠛⠻⠛⠳⠶⣄⡀⠀⠀⠀⠀⠀⠀\n" +
+                    "⠀⠀⣠⣶⣿⣿⣿⣶⣖⠶⢶⣤⡀⠀⠈⢿⣆⠀⠀⠀⠀⠀\n" +
+                    "⢀⣴⣿⠋⠉⠉⠀⠀⠈⠉⠛⠿⢿⣷⡀⠀⠈⢷⡀⠀⠀⠀\n" +
+                    "⡾⠉⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⢦⡀⠘⣷⡀⠀⠀\n" +
+                    "⣷⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⡀⢸⡇⠀⠀\n" +
+                    "⢻⡜⡄⠀⢀⣀⣤⣶⣶⡄⣴⣾⣿⣛⣓⠀⠀⣧⢸⣇⠀⠀\n" +
+                    "⢈⣧⣧⠀⢩⠞⠿⠿⠻⠀⠘⠙⠃⠛⠛⠓⠀⣿⣻⠿⣷⠀\n" +
+                    "⢸⡵⣿⠀⠀⠀⠀⠀⠀⠀⠀⠠⡀⠀⠀⠀⠀⠀⢻⣇⡟⠀\n" +
+                    "⠘⢧⣿⡀⠀⠀⠀⠀⢧⣤⣤⣶⣗⠀⠀⠀⠀⠀⠜⣽⠁⠀\n" +
+                    "⠀⠈⢿⣧⠀⠀⠀⠀⣿⣿⣿⣿⣿⣀⠀⠀⠀⢠⡟⠁⠀⠀\n" +
+                    "⠀⠀⠀⠘⣇⠀⠀⠰⠋⠉⠙⠂⠀⠉⠀⠀⠀⣼⡅⠀⠀⠀\n" +
+                    "⠀⠀⠀⠀⠹⣦⡀⠀⠀⠀⠉⠉⠁⠀⠀⠀⣠⠏⢻⣤⡀⠀\n" +
+                    "⠀⠀⠀⠀⠀⢹⡷⢦⣄⣀⣀⣀⣀⣤⣴⡾⠃⠀⠘⡿⠙⢶\n" +
+                    "⠀⠀⠀⠀⠀⢨⡷⣤⡀⠈⠉⠉⢁⡴⠋⠀⠀⠀⣸⠃⠀⠀");
+        }
+
+        public static void pepe() {
+            System.out.println("" +
+                    "⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠁⠀⠉⠙⠛⠿⠛⠉⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿\n" +
+                    "⣿⣿⣿⣿⣿⣿⡿⠋⠀⢀⠔⠒⠒⠒⠒⠀⠠⠔⠚⠉⠉⠁⠀⠙⢿⣿⣿⣿⣿⣿\n" +
+                    "⣿⣿⣿⣿⠟⢋⠀⠀⠀⠀⣠⢔⠤⠀⢤⣤⡀⠠⣢⡭⠋⡙⢿⣭⡨⠻⣿⣿⣿⣿\n" +
+                    "⣿⣿⣿⠇⢀⠆⠀⠀⠀⣪⣴⣿⠐⢬⠀⣿⡗⣾⣿⡇⠈⠦⢸⣿⠗⢠⠿⠿⣿⣿\n" +
+                    "⣿⣿⡏⠀⠀⠀⢀⡀⠀⠈⠛⠻⠄⠀⠠⠋⠀⠈⠛⠻⠆⠀⠈⢀⡠⣬⣠⢣⣶⢸\n" +
+                    "⣿⡿⠀⠀⠀⣶⡌⣇⣿⢰⠷⠦⠄⣀⣀⣀⣀⣀⣀⣠⣤⠶⠞⡛⠁⣿⣿⣾⣱⢸\n" +
+                    "⣿⡇⠀⠀⠀⣬⣽⣿⣿⢸⡜⢿⣷⣶⣶⣶⣯⣽⣦⡲⣾⣿⡇⣿⠀⣌⠿⣿⠏⣼\n" +
+                    "⣿⡇⠀⠀⠀⠹⣿⡿⢫⡈⠻⢦⡹⢟⣛⣛⣛⣛⣛⣡⠿⣫⡼⠃⠀⣿⡷⢠⣾⣿\n" +
+                    "⣿⡇⡀⠀⠀⠀⠀⠰⣿⣷⡀⠀⠙⠳⠦⣭⣭⣭⣵⡶⠿⠋⠀⢀⣴⣿⡇⣾⣿⣿\n" +
+                    "⣿⢠⣿⣦⣄⣀⠀⠀⢻⣿⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⣀⣤⣶⣿⣿⡟⣰⣿⣿⣿\n" +
+                    "⡇⣸⣿⣿⣿⣿⣿⣷⣦⢹⣿⣇⢠⣤⣤⣤⣤⣶⣾⣿⣿⣿⣿⣿⣿⡇⢹⣿⣿⣿\n" +
+                    "⡇⣿⣿⣿⣿⣿⣿⣿⣿⣎⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⣸⣿⣿⣿\n" +
+                    "⣧⡘⠿⢿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⢋⣡⣾⣿⣿⣿⣿\n" +
+                    "⣿⣿⣿⣶⣤⣍⣉⣛⣛⡛⠛⠛⢛⣛⣛⣛⣛⣉⣩⣭⣤⣴⣶⣿⣿⣿⣿⣿⣿⣿");
+        }
+
+        public static void pepe2() {
+            System.out.println(
+                    "⣿⣿⣿⠛⠉⢀⣤⣀⠄⠄⠄⠄⠄⠄⠄⠄⠄⠻⠷⠄⠄⠄⢘⣲⣄⠉⢻⣿⣿⣿\n" +
+                            "⣿⠛⠁⠄⢸⣿⣿⡿⣋⣤⠤⠄⠄⣀⣀⣀⡀⠄⠄⠄⣀⣤⣤⣤⣤⣅⡀⠹⣿⣿\n" +
+                            "⠇⠄⠌⢀⣿⣿⣿⣿⠟⣁⣴⣾⣿⣿⠟⡛⠛⢿⣆⢸⣿⣿⣿⠫⠄⠈⢻⠄⢹⣿\n" +
+                            "⠄⠘⠄⣸⣿⣿⣿⣿⡐⣿⣿⣿⣿⣿⣄⠅⢀⣼⡿⠘⢿⣿⣿⣷⣥⣴⡿⠄⢸⣿\n" +
+                            "⠄⠃⠄⣿⣿⣿⣿⣿⣷⣬⡙⠻⠿⠿⠿⠿⠟⠋⠁⣠⡀⠠⠭⠭⠭⢥⣤⠄⢸⣿\n" +
+                            "⢸⠄⢸⣿⣿⣿⣿⣿⣿⣿⣉⣛⠒⠒⠒⢂⣁⣠⣴⣿⣿⣿⣶⣶⣶⣿⣿⡇⠄⣿\n" +
+                            "⣿⠄⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠉⠉⠛⢿⣿⣿⣿⡇⠄⣿\n" +
+                            "⡏⠄⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⠄⠄⠄⠄⠄⠄⠈⢻⣿⣿⠃⢀⣿\n" +
+                            "⡇⠄⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠇⠄⠄⠄⠄⠄⠄⠄⠄⠈⣿⣿⠄⢸⣿\n" +
+                            "⡇⠄⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠄⠹⣶⣄⠄⠄⠄⠄⠄⠄⠄⠘⠛⢿⠄⢸⣿\n" +
+                            "⠃⠠⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡆⢰⣿⣿⣧⠄⡀⠄⢀⣠⣶⣿⠗⠄⢀⣾⣿\n" +
+                            "⠄⠄⠄⠄⠉⠻⣿⣿⣿⣿⣿⣿⣿⣿⠈⣿⣿⠃⠄⣩⣴⣿⣿⣿⣃⣤⣶⠄⢹⣿\n" +
+                            "⠄⠄⠄⠄⠄⠄⠄⠉⠻⢿⣿⣿⣿⡟⢠⣿⣧⣴⣿⣿⣿⣿⣿⣿⣿⣿⣋⡀⠘⣿\n" +
+                            "⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠉⠛⠁⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠄⠻\n" +
+                            "⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣾⡖");
+        }
+
+        public static void triangle(int height) {
+            for (int i = 1; i <= height; i++) {
+                for (int j = 1; j <= height - i; j++)
+                    System.out.print(" ");
+                for (int j = 1; j <= (i * 2) - 1; j++)
+                    System.out.print("*");
+                System.out.println();
+            }
+        }
+
+        public static void t_triangle(int height) {
+            for (int i = height; i >= 1; i--) {
+                for (int j = height - i; j >= 1; j--)
+                    System.out.print(" ");
+                for (int j = (i * 2) - 1; j >= 1; j--)
+                    System.out.print("*");
+                System.out.println();
+            }
+        }
+
+        public static void tt_triangle(int height) {
+            height -= 1;
+            for (int i = height; i >= 1; i--) {
+                System.out.print(" ");
+                for (int j = height - i; j >= 1; j--)
+                    System.out.print(" ");
+                for (int j = (i * 2) - 1; j >= 1; j--)
+                    System.out.print("*");
+                System.out.println();
+            }
+        }
+    }
+
+//해쉬셋을 int[] 배열로 바꾸는 함수
     public static int[] convert_Array_Hashset(HashSet<Integer> set) {
         int index = 0;
         int[] result = new int[set.size()];
@@ -60,7 +133,8 @@ public class Main {
 
         return result;
     }
-    public static void Sleep(int a){
+
+    public static void Sleep(int a) {
         try {
             Thread.sleep(a); // 1000밀리초(1초) 동안 스레드 일시 정지
         } catch (InterruptedException e) {
@@ -106,57 +180,25 @@ public class Main {
         }
 
         //출력관련 함수
-        public static void ArrayPrint(int[][] Array) {
+        public static <T> void ArrayPrint(T[][] Array) {
             for (int i = 0; i < Array.length; i++) {
                 for (int j = 0; j < Array[i].length; j++) {
                     System.out.print("{" + i + "]" + " {" + j + "] : "
                             + Array[i][j] + " |\t");
                 }
                 System.out.println();
+            }
+        }
+
+        public static <T> void ArrayPrint(T[] Array) {
+            for (int i = 0; i < Array.length; i++) {
+                System.out.println("{" + i + "] " + Array[i]);
             }
         }
 
         public static void ArrayPrint(int[] Array) {
             for (int i = 0; i < Array.length; i++) {
                 System.out.println("{" + i + "] " + Array[i]);
-            }
-        }
-
-        public static void ArrayPrint(long[] Array) {
-            for (int i = 0; i < Array.length; i++) {
-                System.out.println("{" + i + "] " + Array[i]);
-            }
-        }
-
-        public static void ArrayPrint(char[] Array) {
-            for (int i = 0; i < Array.length; i++) {
-                System.out.println("{" + i + "] " + Array[i]);
-            }
-        }
-
-        public static void ArrayPrint(char[][] Array) {
-            for (int i = 0; i < Array.length; i++) {
-                for (int j = 0; j < Array[i].length; j++) {
-                    System.out.print("{" + i + "]" + " {" + j + "] : "
-                            + Array[i][j] + " |\t");
-                }
-                System.out.println();
-            }
-        }
-
-        public static void ArrayPrint(String[][] Array) {
-            for (int i = 0; i < Array.length; i++) {
-                for (int j = 0; j < Array[i].length; j++) {
-                    System.out.print("{" + i + "]" + " {" + j + "] : \""
-                            + Array[i][j] + "\" |\t");
-                }
-                System.out.println();
-            }
-        }
-
-        public static void ArrayPrint(String[] Array) {
-            for (int i = 0; i < Array.length; i++) {
-                System.out.println("{" + i + "] \"" + Array[i] + "\"");
             }
         }
         //출력관련 함수
@@ -169,20 +211,8 @@ public class Main {
             return newArray;
         }
 
-        public static Double[] ArrayAdd(Double[] originArray, Double val) {
-            Double[] newArray = new Double[originArray.length + 1];
-            for (int i = 0; i < originArray.length; i++) {
-                newArray[i] = originArray[i];
-            }
-            newArray[originArray.length] = val;
-            return newArray;
-        }
-
-        public static String[] ArrayAdd(String[] originArray, String val) {
-            String[] newArray = new String[originArray.length + 1];
-            for (int i = 0; i < originArray.length; i++) {
-                newArray[i] = originArray[i];
-            }
+        public static <T> T[] ArrayAdd(T[] originArray, T val) {
+            T[] newArray = Arrays.copyOf(originArray, originArray.length + 1);
             newArray[originArray.length] = val;
             return newArray;
         }
@@ -1243,6 +1273,100 @@ public class Main {
         CustomArray.ArrayPrint(answer);
 
          */
+
+        //콜라 문제
+        /*
+        int b = 2;
+        int a =3;
+        int n = 20;// n/a
+        int answer = 0;
+
+        while (n/a>0){
+            answer+=(n/a)*b ;
+            n=((n/a)*b)+(n%a);
+        }
+        System.out.println(answer);
+
+         */
+
+        //추억 점수
+        /*
+//        String[] name ={"may", "kein", "kain", "radi"};
+//        int [] yearning ={5, 10, 1, 3};
+//        String[][] photo= {
+//                {"may", "kein", "kain", "radi"},    // 5 10 1 3 = 19
+//                {"may", "kein", "brin", "deny"},    // 15
+//                {"kon", "kain", "may", "coni"}};    // 6
+
+//        String[] name = {"kali", "mari", "don"};
+//        int[] yearning = {11, 1, 55};
+//        String[][] photo = {
+//                {"kali", "mari", "don"},
+//                {"pony", "tom", "teddy"},
+//                {"con", "mona", "don"}};
+
+        String[] name = {"may", "kein", "kain", "radi"};
+        int[] yearning = {5, 10, 1, 3};
+        String[][] photo = {
+                {"may"},                //5
+                {"kein", "deny", "may"},//10 5
+                {"kon", "coni"}};
+        //각각의 이름(name)에  그리움 점수(yearning)를 넣고
+        //각 행마다 합산 구하기
+        int[] answer = new int[photo.length];
+//        photo = photo[0][0].sp
+        for (int i = 0; i < photo.length; i++) {
+            answer[i] = 0;
+            for (int j = 0; j < photo[i].length; j++) {
+                for (int k = 0; k < name.length; k++) {
+                    if (photo[i][j].equals(name[k])) {
+                        answer[i] += Integer.valueOf(photo[i][j].replaceFirst(name[k], String.valueOf(yearning[k])));
+                        break;
+                    }
+                }
+            }
+        }
+        //  System.out.println(Arrays.asList(photo[0][0]).contains("[0-9]"));
+
+        //숫자가 아닐때는 if문으로 빠짐?
+
+        System.out.println(Arrays.asList(answer));
+        CustomArray.ArrayPrint(photo);
+        CustomArray.ArrayPrint(answer);
+
+ */
+
+        //2016년 최적화 하타치
+        /*
+        int a =5;
+        int b = 24;
+        String answer ="";
+        String[] week={"SUN","MON","TUE","WED","THU","FRI","SAT"};
+        Calendar cal =Calendar.getInstance();
+        cal.set(Calendar.YEAR,2016);
+        cal.set(Calendar.MONTH,a-1);//0부터 1월
+        cal.set(Calendar.DAY_OF_MONTH,b);
+        answer=week[cal.get(Calendar.DAY_OF_WEEK)-1];
+        System.out.println(week[cal.get(Calendar.DAY_OF_WEEK)-1]);
+        System.out.println(cal.getTime());
+
+         */
+        //2016년 잘만든거
+        /*
+        String answer;
+        int[] c = {31,29,31,30,31,30,31,31,30,31,30,31};
+        String[] MM ={"FRI","SAT","SUN","MON","TUE","WED","THU"};
+        int Adate = 0;
+        for(int i = 0 ; i< a-1; i++){
+           Adate += c[i];
+        }
+        Adate += b-1;
+        answer = MM[Adate %7];
+         */
+
+
+
+
 
     }
 
