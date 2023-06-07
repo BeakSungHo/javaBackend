@@ -2,32 +2,54 @@
 // then press Enter. You can now see whitespace characters in your code.
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.*;
+import java.util.stream.IntStream;
+interface M {
+//    int sum(int a, int b );
+    void sum2(int c, int d);
+}
 
 public class Main {
-    //sun bud car
-    public static void main(String[] args) {
+    public static <T>void main(String[] args) {
 
-        int [] nums = {3, 3, 3, 2, 2, 2};
-        int answer=0;
-        HashSet<Integer> hs =new HashSet<>();
-        for(int num: nums)
-            hs.add(num);
-        int numssize= nums.length/2;
-        answer = numssize>= hs.size()?hs.size():numssize;
+        int[] arr = {0, 1, 2, 3, 4, 5, 6};
+        int[] query = {4, 1, 2};
 
-        System.out.println(answer);
+        CustomArray.ArrayPrint(solution(arr, query));
 
 
+//        int [] nums = {3, 3, 3, 2, 2, 2};
+//        int answer=0;
+//        HashSet<Integer> hs =new HashSet<>();
+//        for(int num: nums)
+//            hs.add(num);
+//        int numssize= nums.length/2;
+//        answer = numssize>= hs.size()?hs.size():numssize;
+//
+//        System.out.println(answer);
+
+        T val=(T)Integer.valueOf("12");
+        int p= (int)val;
+        //a=Integer.valueOf("12");
+       M m = (a, b) ->System.out.println(a+" "+b);
+               m.sum2(10,11);
+//        System.out.println(m.sum2(10, 11));
+
+    }
 
 
+    public <T> T s(T a) {
+        int c = 3;
+        return a;
+    }
 
-
-
+    public static int[] solution(int[] arr, int[] query) {
+        return IntStream.range(0, query.length)
+                .boxed()
+                .reduce(arr, (c, next) -> next % 2 == 0 ?//arr은 초기값, 계산할 함수,
+                                Arrays.copyOfRange(c, 0, query[next] + 1) :
+                                Arrays.copyOfRange(c, query[next], c.length),
+                        (a, b) -> a);
     }
 
     public class 심심이 {
@@ -124,7 +146,7 @@ public class Main {
         }
     }
 
-//해쉬셋을 int[] 배열로 바꾸는 함수
+    //해쉬셋을 int[] 배열로 바꾸는 함수
     public static int[] convert_Array_Hashset(HashSet<Integer> set) {
         int index = 0;
         int[] result = new int[set.size()];
@@ -197,6 +219,12 @@ public class Main {
         }
 
         public static void ArrayPrint(int[] Array) {
+            for (int i = 0; i < Array.length; i++) {
+                System.out.println("{" + i + "] " + Array[i]);
+            }
+        }
+
+        public static void ArrayPrint(char[] Array) {
             for (int i = 0; i < Array.length; i++) {
                 System.out.println("{" + i + "] " + Array[i]);
             }
@@ -1365,7 +1393,42 @@ public class Main {
          */
 
 
+        //배열 조각하기
+        /*
+        int[] arr = {0,1,2,3,4,5,6};
+        int[] query={4,1,2};
 
+        int [] answer;
+        List<Integer> list = new ArrayList<>();
+
+        for(int i:arr)//배열추가
+            list.add(i);
+
+        //그다음 배열제거
+        boolean b_BCount=true;// 짝홀확인용 연산 줄이기위해 불린사용
+        for(int i =0; i<query.length;i++) {
+            if (b_BCount) {//짝수번째일때
+                for(int j = query[i]+1 ;j<list.size();)//해당 인덱스를 삭제하는것이아닌 그다음을삭제 증감은 없는게 맞음
+                    list.remove(j);//관련배열삭제
+                b_BCount=!b_BCount;
+            }else{
+                for(int j = query[i]-1;j>=0;j--)
+                    list.remove(j);
+                b_BCount=!b_BCount;
+
+            }
+        }
+        answer=new int[list.size()];
+        for(int i=0;i<list.size();i++)
+            answer[i]= list.get(i);
+
+        CustomArray.ArrayPrint(answer);
+
+//        for(int i=)
+
+//        CustomArray.ArrayAdd(ch);
+
+         */
 
 
     }
