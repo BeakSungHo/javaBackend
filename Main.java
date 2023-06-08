@@ -4,20 +4,9 @@
 
 import java.util.*;
 import java.util.stream.IntStream;
-interface M {
-//    int sum(int a, int b );
-    void sum2(int c, int d);
-}
 
 public class Main {
     public static <T>void main(String[] args) {
-
-        int[] arr = {0, 1, 2, 3, 4, 5, 6};
-        int[] query = {4, 1, 2};
-
-        CustomArray.ArrayPrint(solution(arr, query));
-
-
 //        int [] nums = {3, 3, 3, 2, 2, 2};
 //        int answer=0;
 //        HashSet<Integer> hs =new HashSet<>();
@@ -28,35 +17,14 @@ public class Main {
 //
 //        System.out.println(answer);
 
-        T val=(T)Integer.valueOf("12");
-        int p= (int)val;
-        //a=Integer.valueOf("12");
-       M m = (a, b) ->System.out.println(a+" "+b);
-               m.sum2(10,11);
-//        System.out.println(m.sum2(10, 11));
-
     }
 
-
-    public <T> T s(T a) {
-        int c = 3;
-        return a;
-    }
-
-    public static int[] solution(int[] arr, int[] query) {
-        return IntStream.range(0, query.length)
-                .boxed()
-                .reduce(arr, (c, next) -> next % 2 == 0 ?//arr은 초기값, 계산할 함수,
-                                Arrays.copyOfRange(c, 0, query[next] + 1) :
-                                Arrays.copyOfRange(c, query[next], c.length),
-                        (a, b) -> a);
-    }
 
     public class 심심이 {
         public static void nana() {
             System.out.println("" +
                     "⠀⠘⡀⠀⠀⠀⠀             ⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠀⠀⠀\n" +
-                    "⠀⠀⠀⠑⡀⠀⠀어쩌라고 진짜⠀⠀⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⠀\n" +
+                    "⠀⠀⠀⠑⡀⠀⠀                ⠀⠀⠀⠀⠀⠀⡔⠁⠀⠀⠀\n" +
                     "⠀⠀⠀⠀⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠴⠊⠀⠀⠀⠀⠀\n" +
                     "⠀⠀⠀⠀⠀⠀ ⠀⢸⠀⢀⣀⣀⣀⣀⠤⠄⠒⠈⠀⠀⠀⠀⠀⠀⠀⠀\n" +
                     "⠀⠀⠀⠀⠀⠀⠀:.⠄⠊⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\n" +
