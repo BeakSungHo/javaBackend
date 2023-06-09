@@ -2,11 +2,21 @@
 // then press Enter. You can now see whitespace characters in your code.
 
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.IntStream;
 
+class a123 {
+    int a = 0;
+
+    void setA(int a){
+        this.a= a;
+    }
+}
 public class Main {
-    public static <T>void main(String[] args) {
+
+    public static void main(String[] args) {
+
 //        int [] nums = {3, 3, 3, 2, 2, 2};
 //        int answer=0;
 //        HashSet<Integer> hs =new HashSet<>();
@@ -16,6 +26,15 @@ public class Main {
 //        answer = numssize>= hs.size()?hs.size():numssize;
 //
 //        System.out.println(answer);
+
+        ArrayList<a123> c= new ArrayList<>();
+        c.add(new a123());
+        c.add(new a123());
+        c.add(new a123());
+        c.add(new a123());
+
+        c.get(0).setA(123);
+        System.out.println(c.get(0).a);
 
     }
 
