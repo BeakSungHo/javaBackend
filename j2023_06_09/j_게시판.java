@@ -15,11 +15,9 @@ public class j_게시판 {
 
 class board {
     private control con;
-
     board() {
         con = new control();
     }
-
     void Start() {
 
         while (true) {
@@ -72,8 +70,9 @@ class board {
             }
         }
     }
-
-
+    public void DetailCommand(){
+//        String command = sc.nextLine();
+    }
 }
 
 class control {
@@ -89,7 +88,6 @@ class control {
         bd.add(new board_data("정처기 따야되나요?.","contents3"));
 
     }
-
     void board_DataAdd() {
         System.out.println("게시물 제목을 입력해주세요  : ");
         String title = sc.nextLine();
@@ -100,7 +98,6 @@ class control {
 
         this.flip_Screen();
     }
-
     void board_DataList() {
         System.out.println("==========================================================");
         for (int i = 0; i < bd.size(); i++)
@@ -112,8 +109,6 @@ class control {
                     bd.get(i).getNum(), bd.get(i).getTitle(), bd.get(i).getContens());
 
     }
-
-
     void board_DataUpdata() {
         int idx;
         board_DataList();
@@ -141,7 +136,6 @@ class control {
         this.flip_Screen();
 
     }
-
     void board_DataDelete() {
         int idx;
         board_DataList();
@@ -162,7 +156,6 @@ class control {
                         "============================================\n");
         this.flip_Screen();
     }
-
     void board_DataDetail() {
         int idx;
         board_DataList();
@@ -192,7 +185,6 @@ class control {
         this.flip_Screen();
 
     }
-
     void board_DataSerch() {
         //제목의 내욕을 검색해서 키워드가 들어있으면 출력
         System.out.println("검색할 제목을 입력하세요");
@@ -214,7 +206,6 @@ class control {
         else System.out.println("리스트가 없습니다.");
 
     }
-
     void sleep_Screen(int millis) {
         try {
             Thread.sleep(millis);//바로지우면 문제되니 잠깐 슬립
@@ -223,14 +214,12 @@ class control {
         }
 
     }
-
     void flip_Screen() {
         System.out.println("넘기시려면 아무키나 입력해주세요");
         sc.nextLine();
         for (int i = 0; i < 60; i++)
             System.out.println();
     }
-
     int check_Number(String str) {
         while (true) {
             if (!str.matches("[0-9]+")) {
@@ -240,7 +229,6 @@ class control {
         }
         return Integer.parseInt(str);
     }
-
     int idx_Search(int number) {//를 찾아서 반환
         int idx = bd.size() + 1;
         for (int i = 0; i < bd.size(); i++)//비교
