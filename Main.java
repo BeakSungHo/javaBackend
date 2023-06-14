@@ -3,16 +3,11 @@
 
 
 import java.text.SimpleDateFormat;
+import java.time.*;
 import java.util.*;
 import java.util.stream.IntStream;
 
-class a123 {
-    int a = 0;
 
-    void setA(int a){
-        this.a= a;
-    }
-}
 public class Main {
 
     public static void main(String[] args) {
@@ -27,14 +22,24 @@ public class Main {
 //
 //        System.out.println(answer);
 
-        ArrayList<a123> c= new ArrayList<>();
-        c.add(new a123());
-        c.add(new a123());
-        c.add(new a123());
-        c.add(new a123());
+//  `      ArrayList<a123> c= new ArrayList<>();
+//        c.add(new a123());
+//        c.add(new a123());
+//        c.add(new a123());
+//        c.add(new a123());
+//
+//        c.get(0).setA(123);
+//        System.out.println(c.get(0).a);`
+        LocalDate localDate = LocalDate.now();
+        Instant instant = localDate.atStartOfDay(ZoneId.systemDefault()).toInstant();
+        Date date = Date.from(instant);
 
-        c.get(0).setA(123);
-        System.out.println(c.get(0).a);
+        LocalDate l = LocalDate.now();
+
+        Date d= Date.from(l.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+//        d.getTime();
+        System.out.println(date.getMonth());
 
     }
 

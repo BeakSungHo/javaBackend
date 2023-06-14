@@ -262,6 +262,7 @@ class board_data {
 
         detailBoard= new detail_Board_Data();
         board_Count++;
+        
     }
    int getNum(){
         return this.num;
